@@ -130,7 +130,7 @@ namespace Mysterynumber_daphnevanrooij
                 // if the guess is correct, show message
                 if (userGuess == mysteryNumber)
                 {
-                    MessageBox.Show("C  );
+                    MessageBox.Show("Congrats! You have correctly guessed the mystery number.");
                     LogMessage($"Correct guess {userGuess}, player has won the game!");
 
                     //play a sound when you win
