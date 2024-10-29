@@ -30,6 +30,7 @@
         {
             this.pgbAttemptsLeftDroo = new System.Windows.Forms.ProgressBar();
             this.gbxSetupDroo = new System.Windows.Forms.GroupBox();
+            this.btnDefaultDroo = new System.Windows.Forms.Button();
             this.tbxNumberOfAttemptsDroo = new System.Windows.Forms.TextBox();
             this.tbxStopDroo = new System.Windows.Forms.TextBox();
             this.btnGoDroo = new System.Windows.Forms.Button();
@@ -38,6 +39,8 @@
             this.lblStopAtDroo = new System.Windows.Forms.Label();
             this.lblStartAtDroo = new System.Windows.Forms.Label();
             this.gbxPlayDroo = new System.Windows.Forms.GroupBox();
+            this.lblWrongGuessesDroo = new System.Windows.Forms.Label();
+            this.pgbWrongGuessesDroo = new System.Windows.Forms.ProgressBar();
             this.lblColdDroo = new System.Windows.Forms.Label();
             this.lblHotDroo = new System.Windows.Forms.Label();
             this.tbHotColdDroo = new System.Windows.Forms.TrackBar();
@@ -52,14 +55,29 @@
             this.btnCheatDroo = new System.Windows.Forms.Button();
             this.btnClearDroo = new System.Windows.Forms.Button();
             this.btnMovingPictureDroo = new System.Windows.Forms.Button();
+            this.btnShowGameDroo = new System.Windows.Forms.Button();
+            this.tbxEnterYourNameDroo = new System.Windows.Forms.TextBox();
+            this.lblNameDroo = new System.Windows.Forms.Label();
+            this.btnSubmitDroo = new System.Windows.Forms.Button();
+            this.lblMadeByDroo = new System.Windows.Forms.Label();
+            this.pbxYouLoseDroo = new System.Windows.Forms.PictureBox();
+            this.pbxYouWinDroo = new System.Windows.Forms.PictureBox();
+            this.pbxMovingPicture3Droo = new System.Windows.Forms.PictureBox();
+            this.pbxMovingpicture2Droo = new System.Windows.Forms.PictureBox();
             this.pbxMovingPictureDroo = new System.Windows.Forms.PictureBox();
             this.pbxBackgroundDroo = new System.Windows.Forms.PictureBox();
+            this.pbxMovingPicture4Droo = new System.Windows.Forms.PictureBox();
             this.gbxSetupDroo.SuspendLayout();
             this.gbxPlayDroo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbHotColdDroo)).BeginInit();
             this.gbxInformationDroo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxYouLoseDroo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxYouWinDroo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxMovingPicture3Droo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxMovingpicture2Droo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxMovingPictureDroo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBackgroundDroo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxMovingPicture4Droo)).BeginInit();
             this.SuspendLayout();
             // 
             // pgbAttemptsLeftDroo
@@ -67,11 +85,12 @@
             this.pgbAttemptsLeftDroo.ForeColor = System.Drawing.Color.Lime;
             this.pgbAttemptsLeftDroo.Location = new System.Drawing.Point(105, 113);
             this.pgbAttemptsLeftDroo.Name = "pgbAttemptsLeftDroo";
-            this.pgbAttemptsLeftDroo.Size = new System.Drawing.Size(100, 19);
+            this.pgbAttemptsLeftDroo.Size = new System.Drawing.Size(100, 13);
             this.pgbAttemptsLeftDroo.TabIndex = 9;
             // 
             // gbxSetupDroo
             // 
+            this.gbxSetupDroo.Controls.Add(this.btnDefaultDroo);
             this.gbxSetupDroo.Controls.Add(this.tbxNumberOfAttemptsDroo);
             this.gbxSetupDroo.Controls.Add(this.tbxStopDroo);
             this.gbxSetupDroo.Controls.Add(this.btnGoDroo);
@@ -85,6 +104,16 @@
             this.gbxSetupDroo.TabIndex = 0;
             this.gbxSetupDroo.TabStop = false;
             this.gbxSetupDroo.Text = "Setup";
+            // 
+            // btnDefaultDroo
+            // 
+            this.btnDefaultDroo.Location = new System.Drawing.Point(214, 104);
+            this.btnDefaultDroo.Name = "btnDefaultDroo";
+            this.btnDefaultDroo.Size = new System.Drawing.Size(71, 23);
+            this.btnDefaultDroo.TabIndex = 9;
+            this.btnDefaultDroo.Text = "Default";
+            this.btnDefaultDroo.UseVisualStyleBackColor = true;
+            this.btnDefaultDroo.Click += new System.EventHandler(this.btnDefaultDroo_Click);
             // 
             // tbxNumberOfAttemptsDroo
             // 
@@ -148,6 +177,8 @@
             // 
             // gbxPlayDroo
             // 
+            this.gbxPlayDroo.Controls.Add(this.lblWrongGuessesDroo);
+            this.gbxPlayDroo.Controls.Add(this.pgbWrongGuessesDroo);
             this.gbxPlayDroo.Controls.Add(this.pgbAttemptsLeftDroo);
             this.gbxPlayDroo.Controls.Add(this.lblColdDroo);
             this.gbxPlayDroo.Controls.Add(this.lblHotDroo);
@@ -162,6 +193,23 @@
             this.gbxPlayDroo.TabIndex = 1;
             this.gbxPlayDroo.TabStop = false;
             this.gbxPlayDroo.Text = "Play";
+            // 
+            // lblWrongGuessesDroo
+            // 
+            this.lblWrongGuessesDroo.AutoSize = true;
+            this.lblWrongGuessesDroo.Location = new System.Drawing.Point(5, 131);
+            this.lblWrongGuessesDroo.Name = "lblWrongGuessesDroo";
+            this.lblWrongGuessesDroo.Size = new System.Drawing.Size(84, 13);
+            this.lblWrongGuessesDroo.TabIndex = 11;
+            this.lblWrongGuessesDroo.Text = "Wrong guesses:";
+            // 
+            // pgbWrongGuessesDroo
+            // 
+            this.pgbWrongGuessesDroo.ForeColor = System.Drawing.Color.Lime;
+            this.pgbWrongGuessesDroo.Location = new System.Drawing.Point(105, 132);
+            this.pgbWrongGuessesDroo.Name = "pgbWrongGuessesDroo";
+            this.pgbWrongGuessesDroo.Size = new System.Drawing.Size(100, 13);
+            this.pgbWrongGuessesDroo.TabIndex = 10;
             // 
             // lblColdDroo
             // 
@@ -284,20 +332,106 @@
             // 
             // btnMovingPictureDroo
             // 
-            this.btnMovingPictureDroo.Location = new System.Drawing.Point(405, 491);
+            this.btnMovingPictureDroo.Location = new System.Drawing.Point(419, 493);
             this.btnMovingPictureDroo.Name = "btnMovingPictureDroo";
             this.btnMovingPictureDroo.Size = new System.Drawing.Size(121, 53);
             this.btnMovingPictureDroo.TabIndex = 8;
-            this.btnMovingPictureDroo.Text = "Show the game!";
+            this.btnMovingPictureDroo.Text = "Start!";
             this.btnMovingPictureDroo.UseVisualStyleBackColor = true;
             this.btnMovingPictureDroo.Click += new System.EventHandler(this.btnMovingPictureDroo_Click);
+            // 
+            // btnShowGameDroo
+            // 
+            this.btnShowGameDroo.Location = new System.Drawing.Point(737, 491);
+            this.btnShowGameDroo.Name = "btnShowGameDroo";
+            this.btnShowGameDroo.Size = new System.Drawing.Size(121, 53);
+            this.btnShowGameDroo.TabIndex = 11;
+            this.btnShowGameDroo.Text = "Show the game!";
+            this.btnShowGameDroo.UseVisualStyleBackColor = true;
+            this.btnShowGameDroo.Click += new System.EventHandler(this.btnShowGameDroo_Click);
+            // 
+            // tbxEnterYourNameDroo
+            // 
+            this.tbxEnterYourNameDroo.Location = new System.Drawing.Point(708, 235);
+            this.tbxEnterYourNameDroo.Name = "tbxEnterYourNameDroo";
+            this.tbxEnterYourNameDroo.Size = new System.Drawing.Size(161, 20);
+            this.tbxEnterYourNameDroo.TabIndex = 12;
+            // 
+            // lblNameDroo
+            // 
+            this.lblNameDroo.AutoSize = true;
+            this.lblNameDroo.Location = new System.Drawing.Point(748, 219);
+            this.lblNameDroo.Name = "lblNameDroo";
+            this.lblNameDroo.Size = new System.Drawing.Size(87, 13);
+            this.lblNameDroo.TabIndex = 13;
+            this.lblNameDroo.Text = "Enter your name:";
+            // 
+            // btnSubmitDroo
+            // 
+            this.btnSubmitDroo.Location = new System.Drawing.Point(754, 259);
+            this.btnSubmitDroo.Name = "btnSubmitDroo";
+            this.btnSubmitDroo.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmitDroo.TabIndex = 14;
+            this.btnSubmitDroo.Text = "Submit";
+            this.btnSubmitDroo.UseVisualStyleBackColor = true;
+            this.btnSubmitDroo.Click += new System.EventHandler(this.btnSubmitDroo_Click);
+            // 
+            // lblMadeByDroo
+            // 
+            this.lblMadeByDroo.AutoSize = true;
+            this.lblMadeByDroo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMadeByDroo.Location = new System.Drawing.Point(329, 76);
+            this.lblMadeByDroo.Name = "lblMadeByDroo";
+            this.lblMadeByDroo.Size = new System.Drawing.Size(296, 25);
+            this.lblMadeByDroo.TabIndex = 15;
+            this.lblMadeByDroo.Text = "Made by Daphne van Rooij";
+            // 
+            // pbxYouLoseDroo
+            // 
+            this.pbxYouLoseDroo.BackgroundImage = global::Mysterynumber_daphnevanrooij.Properties.Resources._360_F_529761687_w6ZgCR7oJ8iyoPofo8hPikOw6EM9cp4m;
+            this.pbxYouLoseDroo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbxYouLoseDroo.Location = new System.Drawing.Point(1292, 167);
+            this.pbxYouLoseDroo.Name = "pbxYouLoseDroo";
+            this.pbxYouLoseDroo.Size = new System.Drawing.Size(303, 201);
+            this.pbxYouLoseDroo.TabIndex = 18;
+            this.pbxYouLoseDroo.TabStop = false;
+            // 
+            // pbxYouWinDroo
+            // 
+            this.pbxYouWinDroo.BackgroundImage = global::Mysterynumber_daphnevanrooij.Properties.Resources._360_F_312815843_CdVm05kiBenU3YmChP1KRIzcblRgTQFV;
+            this.pbxYouWinDroo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbxYouWinDroo.Location = new System.Drawing.Point(977, 140);
+            this.pbxYouWinDroo.Name = "pbxYouWinDroo";
+            this.pbxYouWinDroo.Size = new System.Drawing.Size(302, 247);
+            this.pbxYouWinDroo.TabIndex = 16;
+            this.pbxYouWinDroo.TabStop = false;
+            // 
+            // pbxMovingPicture3Droo
+            // 
+            this.pbxMovingPicture3Droo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbxMovingPicture3Droo.Image = global::Mysterynumber_daphnevanrooij.Properties.Resources._7761dfa10ecbd295d95d19ce59ab947e;
+            this.pbxMovingPicture3Droo.Location = new System.Drawing.Point(962, -2);
+            this.pbxMovingPicture3Droo.Name = "pbxMovingPicture3Droo";
+            this.pbxMovingPicture3Droo.Size = new System.Drawing.Size(324, 562);
+            this.pbxMovingPicture3Droo.TabIndex = 17;
+            this.pbxMovingPicture3Droo.TabStop = false;
+            // 
+            // pbxMovingpicture2Droo
+            // 
+            this.pbxMovingpicture2Droo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbxMovingpicture2Droo.Image = global::Mysterynumber_daphnevanrooij.Properties.Resources._7761dfa10ecbd295d95d19ce59ab947e;
+            this.pbxMovingpicture2Droo.Location = new System.Drawing.Point(639, -2);
+            this.pbxMovingpicture2Droo.Name = "pbxMovingpicture2Droo";
+            this.pbxMovingpicture2Droo.Size = new System.Drawing.Size(324, 562);
+            this.pbxMovingpicture2Droo.TabIndex = 10;
+            this.pbxMovingpicture2Droo.TabStop = false;
             // 
             // pbxMovingPictureDroo
             // 
             this.pbxMovingPictureDroo.Image = global::Mysterynumber_daphnevanrooij.Properties.Resources.unnamed;
-            this.pbxMovingPictureDroo.Location = new System.Drawing.Point(306, -3);
+            this.pbxMovingPictureDroo.Location = new System.Drawing.Point(323, -4);
             this.pbxMovingPictureDroo.Name = "pbxMovingPictureDroo";
-            this.pbxMovingPictureDroo.Size = new System.Drawing.Size(315, 562);
+            this.pbxMovingPictureDroo.Size = new System.Drawing.Size(324, 562);
             this.pbxMovingPictureDroo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxMovingPictureDroo.TabIndex = 7;
             this.pbxMovingPictureDroo.TabStop = false;
@@ -307,17 +441,37 @@
             this.pbxBackgroundDroo.Image = global::Mysterynumber_daphnevanrooij.Properties.Resources._7761dfa10ecbd295d95d19ce59ab947e;
             this.pbxBackgroundDroo.Location = new System.Drawing.Point(-1, -3);
             this.pbxBackgroundDroo.Name = "pbxBackgroundDroo";
-            this.pbxBackgroundDroo.Size = new System.Drawing.Size(311, 562);
+            this.pbxBackgroundDroo.Size = new System.Drawing.Size(324, 562);
             this.pbxBackgroundDroo.TabIndex = 9;
             this.pbxBackgroundDroo.TabStop = false;
+            // 
+            // pbxMovingPicture4Droo
+            // 
+            this.pbxMovingPicture4Droo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbxMovingPicture4Droo.Image = global::Mysterynumber_daphnevanrooij.Properties.Resources._7761dfa10ecbd295d95d19ce59ab947e;
+            this.pbxMovingPicture4Droo.Location = new System.Drawing.Point(1285, -3);
+            this.pbxMovingPicture4Droo.Name = "pbxMovingPicture4Droo";
+            this.pbxMovingPicture4Droo.Size = new System.Drawing.Size(324, 562);
+            this.pbxMovingPicture4Droo.TabIndex = 19;
+            this.pbxMovingPicture4Droo.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Beige;
-            this.ClientSize = new System.Drawing.Size(618, 558);
+            this.ClientSize = new System.Drawing.Size(1604, 558);
             this.Controls.Add(this.btnMovingPictureDroo);
+            this.Controls.Add(this.pbxYouLoseDroo);
+            this.Controls.Add(this.pbxMovingPicture4Droo);
+            this.Controls.Add(this.pbxYouWinDroo);
+            this.Controls.Add(this.pbxMovingPicture3Droo);
+            this.Controls.Add(this.lblMadeByDroo);
+            this.Controls.Add(this.btnSubmitDroo);
+            this.Controls.Add(this.lblNameDroo);
+            this.Controls.Add(this.tbxEnterYourNameDroo);
+            this.Controls.Add(this.btnShowGameDroo);
+            this.Controls.Add(this.pbxMovingpicture2Droo);
             this.Controls.Add(this.pbxMovingPictureDroo);
             this.Controls.Add(this.btnClearDroo);
             this.Controls.Add(this.btnCheatDroo);
@@ -336,9 +490,15 @@
             this.gbxPlayDroo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbHotColdDroo)).EndInit();
             this.gbxInformationDroo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxYouLoseDroo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxYouWinDroo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxMovingPicture3Droo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxMovingpicture2Droo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxMovingPictureDroo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBackgroundDroo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxMovingPicture4Droo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -370,6 +530,19 @@
         private System.Windows.Forms.ProgressBar pgbAttemptsLeftDroo;
         private System.Windows.Forms.Button btnLocateDroo;
         private System.Windows.Forms.PictureBox pbxBackgroundDroo;
+        private System.Windows.Forms.PictureBox pbxMovingpicture2Droo;
+        private System.Windows.Forms.Button btnShowGameDroo;
+        private System.Windows.Forms.TextBox tbxEnterYourNameDroo;
+        private System.Windows.Forms.Label lblNameDroo;
+        private System.Windows.Forms.Button btnSubmitDroo;
+        private System.Windows.Forms.Label lblMadeByDroo;
+        private System.Windows.Forms.PictureBox pbxYouWinDroo;
+        private System.Windows.Forms.PictureBox pbxMovingPicture3Droo;
+        private System.Windows.Forms.PictureBox pbxYouLoseDroo;
+        private System.Windows.Forms.PictureBox pbxMovingPicture4Droo;
+        private System.Windows.Forms.Button btnDefaultDroo;
+        private System.Windows.Forms.Label lblWrongGuessesDroo;
+        private System.Windows.Forms.ProgressBar pgbWrongGuessesDroo;
     }
 }
 

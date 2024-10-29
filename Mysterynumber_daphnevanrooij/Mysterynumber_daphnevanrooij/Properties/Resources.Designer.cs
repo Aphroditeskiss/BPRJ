@@ -63,6 +63,26 @@ namespace Mysterynumber_daphnevanrooij.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _360_F_312815843_CdVm05kiBenU3YmChP1KRIzcblRgTQFV {
+            get {
+                object obj = ResourceManager.GetObject("360_F_312815843_CdVm05kiBenU3YmChP1KRIzcblRgTQFV", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _360_F_529761687_w6ZgCR7oJ8iyoPofo8hPikOw6EM9cp4m {
+            get {
+                object obj = ResourceManager.GetObject("360_F_529761687_w6ZgCR7oJ8iyoPofo8hPikOw6EM9cp4m", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _7761dfa10ecbd295d95d19ce59ab947e {
             get {
                 object obj = ResourceManager.GetObject("7761dfa10ecbd295d95d19ce59ab947e", resourceCulture);

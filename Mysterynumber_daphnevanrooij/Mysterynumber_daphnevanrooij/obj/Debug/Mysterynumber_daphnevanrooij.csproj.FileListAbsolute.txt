@@ -18,3 +18,13 @@ C:\Users\Daphne school\Downloads\Mysterynumber_daphnevanrooij\Mysterynumber_daph
 C:\Users\Daphne school\Downloads\Mysterynumber_daphnevanrooij\Mysterynumber_daphnevanrooij\obj\Debug\Mysterynumber_daphnevanrooij.csproj.CoreCompileInputs.cache
 C:\Users\Daphne school\Downloads\Mysterynumber_daphnevanrooij\Mysterynumber_daphnevanrooij\obj\Debug\Mysterynumber_daphnevanrooij.exe
 C:\Users\Daphne school\Downloads\Mysterynumber_daphnevanrooij\Mysterynumber_daphnevanrooij\obj\Debug\Mysterynumber_daphnevanrooij.pdb
+C:\Users\Daphne school\Documents\School\Mysterynumber_daphnevanrooij\Mysterynumber_daphnevanrooij\obj\Debug\Mysterynumber_daphnevanrooij.csproj.AssemblyReference.cache
+C:\Users\Daphne school\Documents\School\Mysterynumber_daphnevanrooij\Mysterynumber_daphnevanrooij\obj\Debug\Mysterynumber_daphnevanrooij.Form1.resources
+C:\Users\Daphne school\Documents\School\Mysterynumber_daphnevanrooij\Mysterynumber_daphnevanrooij\obj\Debug\Mysterynumber_daphnevanrooij.Properties.Resources.resources
+C:\Users\Daphne school\Documents\School\Mysterynumber_daphnevanrooij\Mysterynumber_daphnevanrooij\obj\Debug\Mysterynumber_daphnevanrooij.csproj.GenerateResource.cache
+C:\Users\Daphne school\Documents\School\Mysterynumber_daphnevanrooij\Mysterynumber_daphnevanrooij\obj\Debug\Mysterynumber_daphnevanrooij.csproj.CoreCompileInputs.cache
+C:\Users\Daphne school\Documents\School\Mysterynumber_daphnevanrooij\Mysterynumber_daphnevanrooij\obj\Debug\Mysterynumber_daphnevanrooij.exe
+C:\Users\Daphne school\Documents\School\Mysterynumber_daphnevanrooij\Mysterynumber_daphnevanrooij\obj\Debug\Mysterynumber_daphnevanrooij.pdb
+C:\Users\Daphne school\Documents\School\Mysterynumber_daphnevanrooij\Mysterynumber_daphnevanrooij\bin\Debug\Mysterynumber_daphnevanrooij.exe.config
+C:\Users\Daphne school\Documents\School\Mysterynumber_daphnevanrooij\Mysterynumber_daphnevanrooij\bin\Debug\Mysterynumber_daphnevanrooij.exe
+C:\Users\Daphne school\Documents\School\Mysterynumber_daphnevanrooij\Mysterynumber_daphnevanrooij\bin\Debug\Mysterynumber_daphnevanrooij.pdb

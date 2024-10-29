@@ -1,4 +1,4 @@
-
+﻿
 
 using System;
 using System.Media;
@@ -18,17 +18,16 @@ namespace Mysterynumber_daphnevanrooij
     {
         //define variables
         Random GenerateRandomValue = new Random(); 
-        int maxvalue = 0;
-        int minvalue = 0;
+        int maxvalueDroo = 0;
+        int minvalueDroo = 0;
 
-        int mysteryNumber;
-        int attemptsLeft;
-       
+        int mysteryNumberDroo;
+        int attemptsLeftDroo;
 
         public Form1()
         {
             InitializeComponent();
-            gbxPlayDroo.Enabled = false;
+            gbxPlayDroo.Enabled = false; //disable the play box
 
         }
 
@@ -40,16 +39,14 @@ namespace Mysterynumber_daphnevanrooij
             pbxMovingPictureDroo.Left = gbxPlayDroo.Left;
             pbxMovingPictureDroo.Left = gbxInformationDroo.Left;
             btnMovingPictureDroo.Left = 110;
-
-            
-            
+            lblMadeByDroo.Left = 18;
 
             // make the game invisible
             gbxSetupDroo.Visible = false; 
             gbxPlayDroo.Visible = false;
             gbxInformationDroo.Visible = false;
 
-            this.Width = pbxMovingPictureDroo.Width + 35;
+            this.Width = pbxMovingPictureDroo.Width + 15;
 
             this.Text = "Daphne van Rooij"; //application caption (name) has my name
 
@@ -63,14 +60,15 @@ namespace Mysterynumber_daphnevanrooij
             gbxInformationDroo.Visible = true;
             pbxMovingPictureDroo.Visible = false;
             btnMovingPictureDroo .Visible = false;
+            lblMadeByDroo.Visible = false;
 
             pbxMovingpicture2Droo.Left = gbxSetupDroo.Left;
             pbxMovingpicture2Droo.Left = gbxPlayDroo.Left;
             pbxMovingpicture2Droo.Left = gbxInformationDroo.Left;
             tbxEnterYourNameDroo.Left = 80;
-            lblNameDroo.Left = 80;
-            btnSubmitDroo.Left = 80;
-            btnShowGameDroo.Left = 80;
+            lblNameDroo.Left = 120;
+            btnSubmitDroo.Left = 125;
+            btnShowGameDroo.Left = 100;
 
         }//reveal the game
 
@@ -80,35 +78,29 @@ namespace Mysterynumber_daphnevanrooij
             {
 
                 // get the min and max values from text boxes
-                minvalue = int.Parse(tbxStartDroo.Text); //set min value to 10
-                maxvalue = int.Parse(tbxStopDroo.Text); //set max value to 100
+                minvalueDroo = int.Parse(tbxStartDroo.Text);
+                maxvalueDroo = int.Parse(tbxStopDroo.Text); 
 
-                if(minvalue >= maxvalue)
-                {
-                    MessageBox.Show("The minimum value must be less than the maximum value and within the allowed range (10 to 100).");
-                    LogMessage("Error: Min/max values are invalid.");
-                }
-
-                if (minvalue >= maxvalue) // show message when the minimum value is more than the maximum value
+                if (minvalueDroo >= maxvalueDroo) // show message when the minimum value is more than the maximum value
                 {
                     MessageBox.Show("The minimum value must be less than the maximum value.");
                     LogMessage($"Error: Min value can't be bigger than max value.");
                     return;
                 }
 
-                if (minvalue < 10 || minvalue >= maxvalue || maxvalue > 100)
+                if (maxvalueDroo < 10 || minvalueDroo >= maxvalueDroo || maxvalueDroo > 100) // show message when values are out of range
                 {
-                    MessageBox.Show("Please ensure:\n - Minimum value is at least 10\n - Maximum value is at most 100\n - Maximum is greater than minimum.");
+                    MessageBox.Show("Maximum value cannot be greater than 100 or less than 10.");
                     LogMessage("Error: Invalid range values.");
                     return;
                 }
 
                 // generate the mystery number
-                mysteryNumber = GenerateRandomValue.Next(minvalue, maxvalue);
+                mysteryNumberDroo = GenerateRandomValue.Next(minvalueDroo, maxvalueDroo);
 
-                // get the number of attempts
-                attemptsLeft = int.Parse(tbxNumberOfAttemptsDroo.Text);
-                if (attemptsLeft <= 0)
+                if (string.IsNullOrWhiteSpace(tbxNumberOfAttemptsDroo.Text) ||
+                    !int.TryParse(tbxNumberOfAttemptsDroo.Text, out attemptsLeftDroo) ||
+                    attemptsLeftDroo <= 0) //checks if input is empty or contains whitespace, then attempts to parse string into integer.
                 {
                     MessageBox.Show("Please enter a valid positive number for attempts.");
                     LogMessage($"Error: Enter number of attempts");
@@ -116,13 +108,16 @@ namespace Mysterynumber_daphnevanrooij
                 }
 
                 // progressbar
-                pgbAttemptsLeftDroo.Maximum = attemptsLeft;
-                pgbAttemptsLeftDroo.Value = attemptsLeft;
+                pgbAttemptsLeftDroo.Maximum = attemptsLeftDroo;
+                pgbAttemptsLeftDroo.Value = attemptsLeftDroo;
                 pgbAttemptsLeftDroo.Minimum = 0;
 
+                pgbWrongGuessesDroo.Maximum = attemptsLeftDroo;
+                pgbWrongGuessesDroo.Value = 0;
+
                 // Inform the user
-                rtbInformationDroo.AppendText($"A random number between {minvalue} and {maxvalue} has been generated.\n");
-                MessageBox.Show($"You have {attemptsLeft} attempts to guess the number.");
+                rtbInformationDroo.AppendText($"A random number between {minvalueDroo} and {maxvalueDroo} has been generated.\n");
+                MessageBox.Show($"You have {attemptsLeftDroo} attempts to guess the number.");
 
             }
             catch (Exception ex)
@@ -130,6 +125,7 @@ namespace Mysterynumber_daphnevanrooij
                 MessageBox.Show($"An unexpected error occurred: {ex.Message}");
                 LogMessage($"Error: {ex.Message}");
             }
+          
 
             gbxPlayDroo.Enabled = true;
         }
@@ -138,7 +134,7 @@ namespace Mysterynumber_daphnevanrooij
         {
             try
             {
-                if (mysteryNumber == 0)
+                if (mysteryNumberDroo == 0) //show message if there's no mystery number
                 {
                     MessageBox.Show("Please generate the mystery number first!");
                     LogMessage("Generate a mystery number.");
@@ -148,18 +144,39 @@ namespace Mysterynumber_daphnevanrooij
                 // get the users guess
                 int userGuess = int.Parse(tbxGuessDroo.Text);
 
-                if (userGuess < minvalue || userGuess > maxvalue)
+                if (userGuess < minvalueDroo || userGuess > maxvalueDroo) //show message if guess is out of range
                 {
-                    MessageBox.Show($"Please guess a number between {minvalue} and {maxvalue}.");
+                    MessageBox.Show($"Please guess a number between {minvalueDroo} and {maxvalueDroo}.");
                     LogMessage($"Invalid guess! {userGuess} is out of range.");
                     return;
                 }
 
                 // if the guess is correct, show message
-                if (userGuess == mysteryNumber)
+                if (userGuess == mysteryNumberDroo)
                 {
                     MessageBox.Show($"Congrats, {tbxEnterYourNameDroo.Text}! You have correctly guessed the mystery number.");
                     LogMessage($"Correct guess {userGuess}, player has won the game!");
+                    pbxYouWinDroo.Left = gbxPlayDroo.Left;
+                    pbxYouWinDroo.Visible = true;
+
+                    pbxMovingPicture3Droo.Left = gbxInformationDroo.Left;
+                    pbxMovingPicture3Droo.Left = gbxPlayDroo.Left;
+                    pbxMovingPicture3Droo.Left = gbxSetupDroo.Left;
+
+                    DialogResult playAgain = MessageBox.Show("Do you want to play again ? ", "Play Again", MessageBoxButtons.YesNo); //play again yes or no
+                    if (playAgain == DialogResult.Yes)
+                    {
+                        ResetGame();
+                        pbxYouWinDroo.Visible = false;
+                        pbxMovingPicture3Droo.Visible= false;
+                    }
+                    else
+                    {
+                        Application.Exit(); //end application when pressing no
+                    }
+
+                    pbxYouWinDroo.Visible = false;
+                    pbxMovingPicture3Droo.Visible = false;
 
                     //play a sound when you win
                     System.Media.SoundPlayer player =
@@ -172,24 +189,50 @@ namespace Mysterynumber_daphnevanrooij
                     return;
                 }
 
+                pgbWrongGuessesDroo.Value++;
                 
-                attemptsLeft--; //subtract an attempt if the answer is wrong
 
-                MessageBox.Show($"Wrong guess! Attempts left: {attemptsLeft}"); // wrong guess
+                
+                attemptsLeftDroo--; //subtract an attempt if the answer is wrong
+
+                MessageBox.Show($"Wrong guess! Attempts left: {attemptsLeftDroo}"); // wrong guess
                 LogMessage($"Wrong guess: {userGuess}, try again.");
 
-                pgbAttemptsLeftDroo.Value = attemptsLeft;
+                pgbAttemptsLeftDroo.Value = attemptsLeftDroo;
 
 
-                int difference = Math.Abs(mysteryNumber - userGuess); //calculate difference between user's guess and the mystery number for the hot/cold bar
+                int difference = Math.Abs(mysteryNumberDroo - userGuess); //calculate difference between user's guess and the mystery number for the hot/cold bar
                 UpdateTemperatureMeter(difference);
 
                 // end game when there are no attempts left
-                if (attemptsLeft <= 0)
+                if (attemptsLeftDroo <= 0)
                 {
-                    MessageBox.Show($"Game over! The mystery number was {mysteryNumber}.");
+
+                    pbxYouLoseDroo.Left = gbxPlayDroo.Left;
+                    pbxYouLoseDroo.Visible = true;
+                    
+                    pbxMovingPicture4Droo.Left = gbxInformationDroo.Left;
+                    pbxMovingPicture4Droo.Left = gbxPlayDroo.Left;
+                    pbxMovingPicture4Droo.Left = gbxSetupDroo.Left;
+
+                    MessageBox.Show($"Game over! The mystery number was {mysteryNumberDroo}.");
                     LogMessage($"Game over: Ran out of guesses.");
-                    ResetGame();
+
+
+                    DialogResult playAgain = MessageBox.Show("Do you want to play again ? ", "Play Again", MessageBoxButtons.YesNo);
+                    if (playAgain == DialogResult.Yes)
+                    {
+                        ResetGame();
+                        pbxYouWinDroo.Visible = false;
+                        pbxMovingPicture4Droo.Visible = false;
+                    }
+                    else
+                    {
+                        Application.Exit();
+                    }
+
+                    pbxYouLoseDroo.Visible = false;
+                    pbxMovingPicture4Droo.Visible= false;
                 }
             }
             catch (FormatException)
@@ -199,13 +242,13 @@ namespace Mysterynumber_daphnevanrooij
             }
         }
 
-        private void UpdateTemperatureMeter(int difference)
+        private void UpdateTemperatureMeter(int difference) //update the temperature meter
         {
             try
             {
-                int maxDifference = Math.Max(maxvalue - minvalue, 1); // Avoid dividing by 0
+                int maxDifference = Math.Max(maxvalueDroo - minvalueDroo, 1); // Avoid dividing by 0
                 int trackBarValue = (int)((1.0 - (double)difference / maxDifference) * tbHotColdDroo.Maximum);
-
+                //difference = absolute difference between user guess and mystery number.
                 tbHotColdDroo.Value = Math.Max(0, Math.Min(trackBarValue, tbHotColdDroo.Maximum));
             }
             catch (Exception ex)
@@ -217,8 +260,8 @@ namespace Mysterynumber_daphnevanrooij
 
         private void ResetGame() //reset the game to blank
         {
-            mysteryNumber = 0;
-            attemptsLeft = 0;
+            mysteryNumberDroo = 0;
+            attemptsLeftDroo = 0;
 
             tbxStartDroo.Clear();
             tbxStopDroo.Clear();
@@ -226,6 +269,7 @@ namespace Mysterynumber_daphnevanrooij
             tbxNumberOfAttemptsDroo.Clear();
 
             pgbAttemptsLeftDroo.Value = 0;
+            pgbWrongGuessesDroo.Value = 0;
             rtbInformationDroo.Clear();
             gbxPlayDroo.Enabled = false;
         }
@@ -243,18 +287,18 @@ namespace Mysterynumber_daphnevanrooij
 
         private void btncheatdroo_Click(object sender, EventArgs e) //immediately get the answer
         {
-            tbxGuessDroo.Text = mysteryNumber.ToString();
-            MessageBox.Show($"The mystery number is filled in for you.");
-            LogMessage($"Cheat used: {mysteryNumber}");
-            if (mysteryNumber == 0)
+            tbxGuessDroo.Text = mysteryNumberDroo.ToString(); //puts answer in textbox
+            MessageBox.Show($"The mystery number is filled in for you."); //show message if success
+            LogMessage($"Cheat used: {mysteryNumberDroo}");
+            if (mysteryNumberDroo == 0) //show message if there's no mystery number
             {
                 MessageBox.Show("Please generate a mystery number first!");
                 LogMessage("Cheat failed: Generate mystery number.");
             }
-            else
+            else //show the mystery number in a messagebox
             {
-                MessageBox.Show($"The mystery number was {mysteryNumber}!");
-                LogMessage($"Cheat: {mysteryNumber}");
+                MessageBox.Show($"The mystery number was {mysteryNumberDroo}!");
+                LogMessage($"Cheat: {mysteryNumberDroo}");
             }
         }
 
@@ -265,13 +309,13 @@ namespace Mysterynumber_daphnevanrooij
             LogMessage($"Location: \n{appPath}");
         }
 
-        private void LogMessage(string message)
+        private void LogMessage(string message) //log actions and errors
         {
-            rtbInformationDroo.AppendText($"{DateTime.Now}: {message}");
-            rtbInformationDroo.ScrollToCaret();
-        }//log actions and errors
+            rtbInformationDroo.AppendText($"{DateTime.Now}: {message}{Environment.NewLine}"); //the text that will show up in the rich text box, each on a new line
+            rtbInformationDroo.ScrollToCaret(); //make text viewable if it exceeds the viewable area
+        }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnShowGameDroo_Click(object sender, EventArgs e) //press button to reveal the game
         {
             pbxMovingpicture2Droo.Visible = false;
             tbxEnterYourNameDroo.Visible = false;
@@ -280,23 +324,29 @@ namespace Mysterynumber_daphnevanrooij
             btnShowGameDroo.Visible = false;
         }
 
-        private void btnSubmitDroo_Click(object sender, EventArgs e)
+        private void btnSubmitDroo_Click(object sender, EventArgs e) //submit your name
         {
       
-                string playerName = tbxEnterYourNameDroo.Text.Trim();
+                string playerName = tbxEnterYourNameDroo.Text.Trim(); //retrieves trimmed text from textbox, no trim makes it look messy
             
-                if (string.IsNullOrEmpty(playerName))
+                if (string.IsNullOrEmpty(playerName)) //show message if you didn't enter a name
                 {
                     MessageBox.Show("Please enter a name before you start the game.");
                     LogMessage("Error: Player name required!");
                     return;
                 }
 
-            MessageBox.Show($"Hi, {playerName}, Welcome to the Mystery Number game!");
+            MessageBox.Show($"Hi, {playerName}, Welcome to the Mystery Number game!"); //show message if you successfully entered name
             LogMessage($"Player name entered: {playerName}");
            
         }
 
-     
+        private void btnDefaultDroo_Click(object sender, EventArgs e) //set default values for easy testing
+        {
+            tbxStartDroo.Text = "0";
+            tbxStopDroo.Text = "100";
+            tbxNumberOfAttemptsDroo.Text = "5";
+        }
+
     }
 }
