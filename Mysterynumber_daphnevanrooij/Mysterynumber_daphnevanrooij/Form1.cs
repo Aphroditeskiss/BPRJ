@@ -1,4 +1,4 @@
-﻿
+
 
 using System;
 using System.Media;
@@ -23,6 +23,7 @@ namespace Mysterynumber_daphnevanrooij
 
         int mysteryNumber;
         int attemptsLeft;
+       
 
         public Form1()
         {
@@ -40,12 +41,18 @@ namespace Mysterynumber_daphnevanrooij
             pbxMovingPictureDroo.Left = gbxInformationDroo.Left;
             btnMovingPictureDroo.Left = 110;
 
+            
+            
+
             // make the game invisible
             gbxSetupDroo.Visible = false; 
             gbxPlayDroo.Visible = false;
             gbxInformationDroo.Visible = false;
 
             this.Width = pbxMovingPictureDroo.Width + 35;
+
+            this.Text = "Daphne van Rooij"; //application caption (name) has my name
+
         }
 
         private void btnMovingPictureDroo_Click(object sender, EventArgs e)
@@ -56,7 +63,15 @@ namespace Mysterynumber_daphnevanrooij
             gbxInformationDroo.Visible = true;
             pbxMovingPictureDroo.Visible = false;
             btnMovingPictureDroo .Visible = false;
-            
+
+            pbxMovingpicture2Droo.Left = gbxSetupDroo.Left;
+            pbxMovingpicture2Droo.Left = gbxPlayDroo.Left;
+            pbxMovingpicture2Droo.Left = gbxInformationDroo.Left;
+            tbxEnterYourNameDroo.Left = 80;
+            lblNameDroo.Left = 80;
+            btnSubmitDroo.Left = 80;
+            btnShowGameDroo.Left = 80;
+
         }//reveal the game
 
         private void btnGoDroo_Click(object sender, EventArgs e) //what happens when you press go 
@@ -65,13 +80,26 @@ namespace Mysterynumber_daphnevanrooij
             {
 
                 // get the min and max values from text boxes
-                minvalue = int.Parse(tbxStartDroo.Text);
-                maxvalue = int.Parse(tbxStopDroo.Text);
+                minvalue = int.Parse(tbxStartDroo.Text); //set min value to 10
+                maxvalue = int.Parse(tbxStopDroo.Text); //set max value to 100
+
+                if(minvalue >= maxvalue)
+                {
+                    MessageBox.Show("The minimum value must be less than the maximum value and within the allowed range (10 to 100).");
+                    LogMessage("Error: Min/max values are invalid.");
+                }
 
                 if (minvalue >= maxvalue) // show message when the minimum value is more than the maximum value
                 {
                     MessageBox.Show("The minimum value must be less than the maximum value.");
                     LogMessage($"Error: Min value can't be bigger than max value.");
+                    return;
+                }
+
+                if (minvalue < 10 || minvalue >= maxvalue || maxvalue > 100)
+                {
+                    MessageBox.Show("Please ensure:\n - Minimum value is at least 10\n - Maximum value is at most 100\n - Maximum is greater than minimum.");
+                    LogMessage("Error: Invalid range values.");
                     return;
                 }
 
@@ -130,7 +158,7 @@ namespace Mysterynumber_daphnevanrooij
                 // if the guess is correct, show message
                 if (userGuess == mysteryNumber)
                 {
-                    MessageBox.Show("Congrats! You have correctly guessed the mystery number.");
+                    MessageBox.Show($"Congrats, {tbxEnterYourNameDroo.Text}! You have correctly guessed the mystery number.");
                     LogMessage($"Correct guess {userGuess}, player has won the game!");
 
                     //play a sound when you win
@@ -215,6 +243,9 @@ namespace Mysterynumber_daphnevanrooij
 
         private void btncheatdroo_Click(object sender, EventArgs e) //immediately get the answer
         {
+            tbxGuessDroo.Text = mysteryNumber.ToString();
+            MessageBox.Show($"The mystery number is filled in for you.");
+            LogMessage($"Cheat used: {mysteryNumber}");
             if (mysteryNumber == 0)
             {
                 MessageBox.Show("Please generate a mystery number first!");
@@ -239,5 +270,33 @@ namespace Mysterynumber_daphnevanrooij
             rtbInformationDroo.AppendText($"{DateTime.Now}: {message}");
             rtbInformationDroo.ScrollToCaret();
         }//log actions and errors
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            pbxMovingpicture2Droo.Visible = false;
+            tbxEnterYourNameDroo.Visible = false;
+            lblNameDroo.Visible = false;
+            btnSubmitDroo.Visible = false;
+            btnShowGameDroo.Visible = false;
+        }
+
+        private void btnSubmitDroo_Click(object sender, EventArgs e)
+        {
+      
+                string playerName = tbxEnterYourNameDroo.Text.Trim();
+            
+                if (string.IsNullOrEmpty(playerName))
+                {
+                    MessageBox.Show("Please enter a name before you start the game.");
+                    LogMessage("Error: Player name required!");
+                    return;
+                }
+
+            MessageBox.Show($"Hi, {playerName}, Welcome to the Mystery Number game!");
+            LogMessage($"Player name entered: {playerName}");
+           
+        }
+
+     
     }
 }
